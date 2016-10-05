@@ -33,7 +33,7 @@ export const reverseString = (str) => {
 };
 
 export const isPalindrome = (str) => {
-    str = str.toUpperCase.trim.replace(/^?+!+.+;+:+,$/,'')
+    str = str.toLowerCase()
     if (reverseString(str) === str){
         return true;
     }
@@ -43,8 +43,10 @@ export const isPalindrome = (str) => {
 export const nestedSum = (arr) => {
     let sum = 0
     for(let a of arr){
-        if(typeof(a)==='number'){
-            sum +=a
+        if(typeof a ==='array'){
+            sum += nestedSum(a);
+        }else{
+            sum += a.value
         }
     }
     return sum;
