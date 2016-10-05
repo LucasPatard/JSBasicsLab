@@ -43,10 +43,10 @@ export const isPalindrome = (str) => {
 export const nestedSum = (arr) => {
     let sum = 0
     for(let a of arr){
-        if(typeof a ==='array'){
+        if(typeof a ==='number'){
+            sum += a
+        }else if(Array.isArray(a)){
             sum += nestedSum(a);
-        }else{
-            sum += a.value
         }
     }
     return sum;
